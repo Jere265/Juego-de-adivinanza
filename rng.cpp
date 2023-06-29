@@ -6,15 +6,6 @@
 
 using namespace std;
 
-/*
-int generar_numero() {
-	
-	9876/ 
-	
-	return numero;
-}
-*/
-
 int main (){
 
 	int intento,e,f,g,h;
@@ -23,6 +14,9 @@ int main (){
 	int tercerdigito = 0;
 	int cuartodigito = 0;
 	int posicionescorrectas = 0;
+	int numerodeintentos = 1;
+	
+	int guia[3];
 	
 	srand(time(0));
 	int a = rand() % 10;
@@ -41,49 +35,59 @@ int main (){
 	cout << "numero = " << numero << endl;
 	
 	cin >> intento;
-	cout << "intento = " << intento << endl;
 	
-	h = intento % 10;
-	intento = intento / 10;
-	
-	g = intento % 10;
-	intento = intento / 10;
-	
-	f = intento % 10;
-	intento = intento / 10;
-	
-	e = intento % 10;
-	intento = intento / 10;
-	
-	cout << "e = " << e << endl;
-	cout << "f = " << f << endl;
-	cout << "g = " << g << endl;
-	cout << "h = " << h << endl;
-	
-	if (a == e){
-		primerdigito = 1;
+	while (intento != numero){
+		
+		h = intento % 10;
+		intento = intento / 10;
+		
+		g = intento % 10;
+		intento = intento / 10;
+		
+		f = intento % 10;
+		intento = intento / 10;
+		
+		e = intento % 10;
+		intento = intento / 10;
+		
+		if (a == e){
+			primerdigito = 1;
+			guia[0] = a;
+		}
+		
+		if (b == f){
+			segundodigito = 1;
+			guia[1] = b;
+		}
+		
+		if (c == g){
+			tercerdigito = 1;
+			guia[2] = c;
+		}
+		
+		if (d == h){
+			cuartodigito = 1;
+			guia[3] = d;
+		}
+		
+		posicionescorrectas = primerdigito + segundodigito + tercerdigito + cuartodigito;
+		
+		primerdigito = 0;
+		segundodigito = 0;
+		tercerdigito = 0;
+		cuartodigito = 0;
+		
+		cout << "Posiciones correctas = " << posicionescorrectas << endl;
+		
+		cin >> intento;
+		
+		numerodeintentos++;
+		
+		
+		
 	}
 	
-	if (b == f){
-		segundodigito = 1;
-	}
-	
-	if (c == g){
-		tercerdigito = 1;
-	}
-	
-	if (d == h){
-		cuartodigito = 1;
-	}
-	
-	cout << "primer digito = " << primerdigito << endl;
-	cout << "segundo digito = " << segundodigito << endl;
-	cout << "tercer digito = " << tercerdigito << endl;
-	cout << "cuarto digito = " << cuartodigito << endl;
-	
-	posicionescorrectas = primerdigito + segundodigito + tercerdigito + cuartodigito;
-	
-	cout << "Posiciones correctas = " << posicionescorrectas << endl;
+	cout << "adivinaste en " << numerodeintentos << " intentos" << endl;
 	
 	return 0;
 }
